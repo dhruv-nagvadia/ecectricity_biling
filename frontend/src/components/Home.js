@@ -7,6 +7,7 @@ const Home = ({ sessionScope }) => {
       const navbarToggler = document.querySelector(".navbar-toggler");
       const navbarCollapse = document.querySelector(".navbar-collapse");
 
+      //hello
       if (navbarToggler.classList.contains("collapsed") && !navbarCollapse.classList.contains("show")) {
         return;
       }
