@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 function AddMeter() {
-  const [userId, setUserId] = useState();
-  const [billingAmount, setBillingAmount] = useState();
+  const [userId, setUserId] = useState('');
+  const [billingAmount, setBillingAmount] = useState('');
   const [registrationStatus, setRegistrationStatus] = useState('');
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -40,8 +38,8 @@ function AddMeter() {
   };
 
   return (
-      <div>
-        <h2>Billing Form</h2>
+      <div style={{ backgroundColor: 'lightblue', padding: '20px' }}>
+        <h2 style={{ color: 'blue' }}>Billing Form</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="userId">User ID:</label>
@@ -50,6 +48,7 @@ function AddMeter() {
                 id="userId"
                 value={userId}
                 onChange={(event) => setUserId(event.target.value)}
+                style={{ width: '100%', padding: '5px' }}
             />
           </div>
           <div>
@@ -59,10 +58,12 @@ function AddMeter() {
                 id="billingAmount"
                 value={billingAmount}
                 onChange={(event) => setBillingAmount(event.target.value)}
+                style={{ width: '100%', padding: '5px' }}
             />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" style={{ marginTop: '10px', padding: '5px 10px', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '5px' }}>Submit</button>
         </form>
+        {registrationStatus && <p>{registrationStatus}</p>}
       </div>
   );
 }
